@@ -36,8 +36,8 @@ bl_info = {
     'name': 'Dvorak Layout',
     'category': 'Interface',
     'author': 'AlienTux',
-    'version': (0, 0, 2),
-    'blender': (2, 80, 0),
+    'version': (0, 0, 3),
+    'blender': (3, 0, 0),
     'location': 'Blender Icon (next to File) -> System',
     'description': 'Change all keybindings to Dvorak Layout'
 }
@@ -62,7 +62,7 @@ conversion_map = {
     'N': 'B',
     'O': 'R',
     'P': 'L',
-    'Q': 'QUOTE',
+    'Q': 'SEMI_COLON',
     'R': 'P',
     'S': 'O',
     'T': 'Y',
@@ -71,11 +71,11 @@ conversion_map = {
     'W': 'COMMA',
     'X': 'Q',
     'Y': 'F',
-    'Z': 'SEMI_COLON',
-    'MINUS': 'LEFT_BRACKET',
-    'EQUAL': 'RIGHT_BRACKET',
+    'Z': 'QUOTE',
+    'MINUS': 'ONE',
+    'EQUAL': 'THREE',
     'LEFT_BRACKET': 'SLASH',
-    'RIGHT_BRACKET': 'EQUAL',
+    'RIGHT_BRACKET': 'TWO',
     'SEMI_COLON': 'S',
     'QUOTE': 'MINUS',
     'COMMA': 'W',
@@ -170,8 +170,6 @@ def dvorakMenuTwo(self, context):
 def register():
     bpy.utils.register_class(dvorakLayout)
     bpy.utils.register_class(dvorakLayoutRestore)
-    bpy.types.TOPBAR_MT_app_system.append(dvorakMenuOne)
-    bpy.types.TOPBAR_MT_app_system.append(dvorakMenuTwo)
  
 def unregister():
     bpy.utils.register_class(dvorakLayoutRestore)
