@@ -36,8 +36,8 @@ bl_info = {
     'name': 'Dvorak Layout',
     'category': 'Interface',
     'author': 'AlienTux',
-    'version': (0, 0, 3),
-    'blender': (3, 0, 0),
+    'version': (0, 0, 4),
+    'blender': (3, 1, 0),
     'location': 'Blender Icon (next to File) -> System',
     'description': 'Change all keybindings to Dvorak Layout'
 }
@@ -170,10 +170,14 @@ def dvorakMenuTwo(self, context):
 def register():
     bpy.utils.register_class(dvorakLayout)
     bpy.utils.register_class(dvorakLayoutRestore)
- 
+    bpy.types.TOPBAR_MT_blender_system.append(dvorakMenuOne)
+    bpy.types.TOPBAR_MT_blender_system.append(dvorakMenuTwo)
+  
 def unregister():
     bpy.utils.register_class(dvorakLayoutRestore)
     bpy.utils.unregister_class(dvorakLayout)
+    bpy.types.TOPBAR_MT_blender_system.remove(dvorakMenuOne)
+    bpy.types.TOPBAR_MT_blender_system.remove(dvorakMenuTwo)
     
 if __name__ == '__main__':
     register()
